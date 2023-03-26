@@ -1,2 +1,2 @@
 # react-redux-assigment
-Compass React-Redux Setup Assignment
+Compass React-Redux Setup + Action (GET_PRODUCTS) Assignment
