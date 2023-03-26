@@ -2,10 +2,10 @@ import ComC from "./ComC";
 
 const ComB = () => {
   return (
-    <div>
-      Com B
+    <>
+      <h1>Component B</h1>
       <ComC />
-    </div>
+    </>
   );
 };
 

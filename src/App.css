@@ -41,23 +41,22 @@
   color: #888;
 }
 
-.typing {
-  width: 34ch;
-  animation: typing 3s steps(34), blink 0.5s step-end infinite alternate;
+.card {
+  height: 450px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-text {
+  width: 200px;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid;
-  font-size: 2rem;
+  text-overflow: ellipsis;
 }
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
+.btn-bot {
+  position: absolute;
+  margin-left: -80px;
+  left: 50%;
+  width: 150px;
+  bottom: 20px;
 }

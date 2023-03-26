@@ -1,20 +1,58 @@
 import { connect } from "react-redux";
+import { getProducts } from "../store/actions/productsAction";
+import { useEffect } from "react";
 
-const ComC = ({ usersUi }) => {
-  const { username, phone } = usersUi;
+const ComC = ({ products, FetchGetProduct }) => {
+  useEffect(() => {
+    FetchGetProduct();
+  }, []);
+
+  const handleAddToCart = () => {
+    alert("Item has been added to your cart ... ");
+  };
+
   return (
-    <div>
-      Com C
+    <>
+      <h1>Component C ...</h1>
       <br />
-      <p className="typing">
-        Username - {username}, Phone -{phone}.
-      </p>
-    </div>
+
+      <div className="container product-container">
+        <div className="row">
+          {products &&
+            products.map((product, index) => (
+              <div key={index} className="col">
+                <div className="card" style={{ width: "17rem" }}>
+                  <img
+                    className="card-img rounded"
+                    src={product.thumbnail}
+                    alt="Card image cap"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{product.title}</h5>
+                    <p className="card-text">{product.description}</p>
+
+                    <button
+                      onClick={handleAddToCart}
+                      className="btn btn-success btn-bot"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+        </div>
+      </div>
+    </>
   );
 };
 
 const mapStateToProps = (state) => ({
-  usersUi: state?.usersRoot,
+  products: state?.productsRoot.products,
 });
 
-export default connect(mapStateToProps, null)(ComC);
+const mapDispatchToProps = {
+  FetchGetProduct: getProducts,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ComC);
